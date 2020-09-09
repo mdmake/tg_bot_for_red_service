@@ -1,3 +1,5 @@
 # config/telegram.yaml
 telegram:
   token: '1054426026:AAE-QWcn68QB3eEaZ_H-F37CnXsRmGemkDY'
+web:
+  url: "http://localhost:9093/telegramm"
