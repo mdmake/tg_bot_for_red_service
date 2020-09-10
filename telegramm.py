@@ -1,6 +1,7 @@
 import telebot
 import requests
 import yaml
+import os
 
 
 def get_config(path):
@@ -12,7 +13,8 @@ def get_config(path):
 config = get_config("config.yaml")
 
 
-TOKEN = config['telegram']['token']
+TOKEN = os.environ.get('TOKEN')
+URL = os.environ.get('SERVICE_URL')
 bot = telebot.TeleBot(TOKEN)
 
 
@@ -28,10 +30,10 @@ def get_text_messages(message):
 
 
 def init_red_server_info(user_id):
-    url = config['web']['url']
     query_string = {'user_id': user_id, "token": TOKEN}
     try:
-        requests.request('GET', url, params=query_string)
+        result = requests.request('GET', URL, params=query_string)
+        print(result, result.text)
         bot.send_message(user_id, "Привет, я сервис по определению красного, "
                                   "теперь я будет тебе писать каждый раз, как мне пришлют картинку")
     except Exception as e:

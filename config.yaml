@@ -1,5 +1,5 @@
 # config/telegram.yaml
 telegram:
-  token: '1054426026:AAE-QWcn68QB3eEaZ_H-F37CnXsRmGemkDY'
+  token:
 web:
-  url: "https://redcountservice.herokuapp.com/telegramm"
+  url:
