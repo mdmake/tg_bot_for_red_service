@@ -1,1 +1,1 @@
-worker: python3 telegramm.py
+web: python3 main.py
