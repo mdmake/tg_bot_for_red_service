@@ -1,10 +1,7 @@
-from server import server
-from telegramm import dp
+from server.server import server, app
+from tg_app.telegramm import dp
 from aiogram import executor
 
 
-if __name__ == '__main__':
-    dp.loop.create_task(server())
-    executor.start_polling(dp)
-
-
+dp.loop.create_task(server(app))
+executor.start_polling(dp, skip_updates=True)
